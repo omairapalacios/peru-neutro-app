@@ -1,0 +1,20 @@
+/**
+* Branding colors
+*/
+
+$color-primary: #2276BB;
+$color-secondary: #00B8AD;
+
+/**
+* Media Queries
+*/
+
+$breakpoint-xs: 320px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+:export {
+    primary: $color-primary;
+    secondary: $color-secondary;
+}

@@ -6,13 +6,13 @@ Vue.use(VueRouter);
 const routerOptions = [
   { path: '/', name: 'Login' },
   { path: '/home', name: 'Home' },
-  { path: '/error', name: 'Error' },
-  { path: '*', name: 'Error' },
+  { path: '/not-found', name: 'NotFound' },
+  { path: '*', name: 'NotFound' },
 ];
 
 const routes = routerOptions.map((r) => ({
   ...r,
-  component: () => import(/* webpackChunkName: "[request]" */ `@/views/${r.name}.vue`),
+  component: () => import(/* webpackChunkName: "[request]" */ `@/views/${r.name}/Index.vue`),
 }));
 
 const router = new VueRouter({
