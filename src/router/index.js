@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 const routerOptions = [
   { path: '/', name: 'Login' },
   { path: '/home', name: 'Home' },
+  { path: '/forms/:formId', name: 'Forms' },
   { path: '/not-found', name: 'NotFound' },
   { path: '*', name: 'NotFound' },
 ];

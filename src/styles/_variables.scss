@@ -3,7 +3,7 @@
 */
 
 $color-primary: #2276BB;
-$color-secondary: #00B8AD;
+$color-secondary: #ffff;
 
 /**
 * Media Queries
@@ -18,3 +18,8 @@ $breakpoint-lg: 1360px;
     primary: $color-primary;
     secondary: $color-secondary;
 }
+
+/**
+* Size btns
+*/
+$size-btn: 50px;

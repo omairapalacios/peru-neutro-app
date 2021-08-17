@@ -4,7 +4,19 @@
 */
 
 %btn-general {
-    background-color: $color-primary;
     width: 90%;
-    height: 40px;
+    height: $size-btn !important;
+    font-size: 15px !important;
+    border-radius: $size-btn/2 !important;
+    border: 0.1px solid black;
+}
+.btn-light {
+    @extend %btn-general;
+    background-color: $color-secondary !important;
+}
+
+.btn-dark {
+    @extend %btn-general;
+    color: $color-secondary !important;
+    background-color: $color-primary !important;
 }
