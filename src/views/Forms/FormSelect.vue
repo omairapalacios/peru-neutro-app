@@ -2,7 +2,9 @@
     <v-form>
         <h2 class="pa-5">{{question}}</h2>
         <v-row class="d-flex justify-center align-center">
-            <v-btn class="btn-light my-3" v-for="option in options" :key="option">
+            <v-btn class="btn-light my-3"
+            v-for="option in options" :key="option"
+            @click="saveAnswer">
                 {{option}}
             </v-btn>
         </v-row>
@@ -17,6 +19,11 @@ export default {
     },
     options: {
       type: Array,
+    },
+  },
+  methods: {
+    saveAnswer(option) {
+      console.log(option);
     },
   },
 };

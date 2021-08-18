@@ -1,0 +1,15 @@
+[
+    {
+        "userId": "1234567890",
+        "sectionId": "sectionGNV",
+        "miliseconds": "1629258671",
+        "user_date": "1234567890-1629258671",
+        "answers": [
+            {
+                "questionId": "sectionGNV001",
+                "value": "1000",
+                "validate": false
+            }
+        ]
+    }
+]

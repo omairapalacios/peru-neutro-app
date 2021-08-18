@@ -2,25 +2,16 @@
   {
     "formId": "form-transport-footprint",
     "pages": [
-      [
-        {
+        { 
+          "questionId": "form0001",
           "question": "¿Tienes transporte propio?",
-          "type": "select",
           "options": ["SI", "NO"]
-        }
-      ],
-      [
-        {
-          "question": "2. ¿Que tipo de combustible utilizas?",
-          "type": "select",
-          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
         },
         {
-          "question": "3. Indica la cantidad de galones",
-          "type": "textfield",
-          "label": "10 galones"
+          "questionId": "form0002",
+          "question": "2. ¿Que tipo de combustible utilizas?",
+          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
         }
-      ]
     ]
   }
 ]

@@ -1,0 +1,12 @@
+[
+  {
+    "sectionId": "sectionGNV",
+    "questions": [
+      {
+        "questionId": "sectionGNV001",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  }
+]

@@ -3,12 +3,9 @@
         <Toolbar title="Uso de Transporte" />
         <ProgressBar :progress="progress"/>
         <div class="forms">
-            <v-row v-for="questionForm in currentPage" :key="questionForm.question">
                 <FormSelect
-                 v-if="questionForm.type ==='select'"
-                :question="questionForm.question"
-                :options="questionForm.options"/>
-            </v-row>
+                :question="currentPage.question"
+                :options="currentPage.options"/>
         </div>
          <v-row class="actions d-flex justify-center">
              <v-btn
@@ -19,7 +16,7 @@
             <v-btn
                  v-else
                 class="btn-dark">
-                Registrar huella de carbono
+                Guardar configuracion
             </v-btn>
          </v-row>
     </div>
