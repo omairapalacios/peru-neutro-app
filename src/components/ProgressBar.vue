@@ -1,6 +1,6 @@
 <template>
     <v-card class="pa-1 ma-3 progress-bar elevation-0">
-        <v-progress-linear value="15" height="13"
+        <v-progress-linear :value="progress" height="13"
         background-color="white">
         </v-progress-linear>
     </v-card>
@@ -8,7 +8,9 @@
 
 <script>
 export default {
-
+  props: {
+    progress: String,
+  },
 };
 </script>
 
