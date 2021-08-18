@@ -7,6 +7,7 @@ const routerOptions = [
   { path: '/', name: 'Login' },
   { path: '/home', name: 'Home' },
   { path: '/forms/:formId', name: 'Forms' },
+  { path: '/congratulations', name: 'Congratulations' },
   { path: '/not-found', name: 'NotFound' },
   { path: '*', name: 'NotFound' },
 ];

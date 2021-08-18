@@ -4,7 +4,7 @@
 */
 
 %btn-general {
-    width: 90%;
+    width: 80%;
     height: $size-btn !important;
     font-size: 15px !important;
     border-radius: $size-btn/2 !important;
@@ -19,4 +19,22 @@
     @extend %btn-general;
     color: $color-secondary !important;
     background-color: $color-primary !important;
+}
+
+%text-general{
+    font-family: Mulish;
+    font-style: normal;
+}
+.text-title {
+    @extend %text-general;
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 20px !important;
+    letter-spacing: 0.15000000596046448px;
+}
+.text-body{
+    @extend %text-general;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 24px;
 }

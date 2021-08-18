@@ -1,29 +1,45 @@
 <template>
-    <v-form>
-        <h2 class="pa-5">{{question}}</h2>
-        <v-row class="d-flex justify-center align-center">
+<div>
+    <h2 class="text-center">{{form.question}}</h2>
+    <v-form class="d-flex flex-column justify-center">
+        <div class="d-flex flex-column align-center">
             <v-btn class="btn-light my-3"
-            v-for="option in options" :key="option"
-            @click="saveAnswer">
+            v-for="option in form.options" :key="option"
+            @click="saveAnswer(option)">
                 {{option}}
             </v-btn>
-        </v-row>
+        </div>
     </v-form>
+</div>
 </template>
 
 <script>
+import getSectionValue from '@/utils/sectionsValues';
+
 export default {
   props: {
-    question: {
-      type: String,
+    form: {
+      type: Object,
     },
-    options: {
-      type: Array,
+    changeSectionId: {
+      type: Function,
     },
   },
   methods: {
     saveAnswer(option) {
-      console.log(option);
+      if (option === 'NO') {
+        this.$router.push({
+          name: 'Home',
+        });
+      } else if (!['SI', 'NO'].includes(option)) {
+        const section = getSectionValue(this.formId, option);
+        this.changeSectionId(section);
+      }
+    },
+  },
+  computed: {
+    formId() {
+      return this.$route.params.formId;
     },
   },
 };
@@ -31,4 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/_classes';
+.v-form {
+  height: 65vh !important;
+}
 </style>
