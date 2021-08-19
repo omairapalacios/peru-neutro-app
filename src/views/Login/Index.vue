@@ -4,7 +4,7 @@
     ><v-form class="d-flex flex-column align-center">
       <img class="my-4" src="../../assets/images/login.svg" alt="persona reciclando" />
       <label
-        class="align-self-start font-weight-bold grey-darken-4--text mx-5"
+        class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text mx-5 text-uppercase"
         for="email"
         >Email</label
       >
@@ -17,7 +17,7 @@
         id="id"
       ></v-text-field>
       <label
-        class="align-self-start font-weight-bold grey-darken-4--text mx-5"
+        class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text mx-5 text-uppercase"
         for="email"
         >Contraseña</label
       >
