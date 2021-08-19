@@ -12,8 +12,8 @@ export default {
     progress: String,
   },
 };
+// mi huella //mis avances
 </script>
-
 <style lang="scss" scoped>
 .progress-bar{
     border: 0.3px solid black;

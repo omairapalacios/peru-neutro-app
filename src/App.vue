@@ -1,21 +1,18 @@
 <template>
-  <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <component :is="layout"></component>
 </template>
-
 <script>
 
-export default {
-  name: 'App',
+import { mapState } from 'vuex';
+import LoginLayout from '@/layouts/Login.vue';
+import MainLayout from '@/layouts/Main.vue';
 
-  // data: () => ({
-  //   //
-  // }),
+export default {
+  components: { LoginLayout, MainLayout },
+  computed: mapState(['layout']),
 };
 </script>
+
 <style lang="scss">
 @import './App.scss';
 </style>

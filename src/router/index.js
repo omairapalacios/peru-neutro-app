@@ -9,7 +9,10 @@ const routerOptions = [
   { path: '/register', name: 'Register' },
   { path: '/forms/:formId', name: 'Forms' },
   { path: '/congratulations', name: 'Congratulations' },
-  { path: '/not-found', name: 'NotFound' },
+  { path: '/profile', name: 'MyProfile' },
+  { path: '/advances', name: 'MyAdvances' },
+  { path: '/advances', name: 'MyAdvances' },
+  { path: '/advance/:id', name: 'AdvanceDetail' },
   { path: '*', name: 'NotFound' },
 ];
 
