@@ -53,12 +53,46 @@
           placeholder="999999999"
         ></v-text-field
       ></v-row>
-      <v-btn width="100%" class="rounded-xl my-5" color="secondary">
-        Continuar</v-btn
+      <v-btn width="100%" class="rounded-xl my-5" color="secondary" @click="registerUser">
+        Guardar</v-btn
       ></v-form
-    ></v-container
-  >
+    >
+    <ModalConfirm
+      v-model="dialogConfirm"
+      :data="dataModal"
+      v-on:function-confirm="changeRoute"
+    >
+      <v-img
+        width="100px"
+        src="../../assets/images/global_warming.svg"
+      ></v-img></ModalConfirm
+  ></v-container>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      dialogConfirm: false,
+      dataModal: {
+        title: 'Cuenta Activada',
+        description: 'Gracias por cuidar nuestro medio ambiente...!!!',
+        textBtn: 'Continuar',
+      },
+    };
+  },
+  components: {
+    ModalConfirm: () => import('../../components/ModalConfirm.vue'),
+  },
+  methods: {
+    changeRoute() {
+      this.$router.push('home');
+    },
+    registerUser() {
+      this.dialogConfirm = true;
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .container {
   height: 100vh;
