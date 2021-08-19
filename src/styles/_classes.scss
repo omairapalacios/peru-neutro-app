@@ -25,6 +25,11 @@
     font-family: Mulish;
     font-style: normal;
 }
+%img-general{
+    border: 3px solid $color-primary-light;
+    position: relative;
+    border-radius: 50% !important;
+}
 .text-title {
     @extend %text-general;
     font-weight: 700;
