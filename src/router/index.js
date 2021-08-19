@@ -11,7 +11,6 @@ const routerOptions = [
   { path: '/congratulations', name: 'Congratulations' },
   { path: '/profile', name: 'MyProfile' },
   { path: '/advances', name: 'MyAdvances' },
-  { path: '/advances', name: 'MyAdvances' },
   { path: '/advance/:id', name: 'AdvanceDetail' },
   { path: '*', name: 'NotFound' },
 ];
