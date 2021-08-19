@@ -8,7 +8,7 @@
             {
                 "questionId": "sectionGNV001",
                 "value": "1000",
-                "validate": false
+                "status": "registrado"
             }
         ]
     }

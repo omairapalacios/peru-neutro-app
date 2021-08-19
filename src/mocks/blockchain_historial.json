@@ -1,0 +1,17 @@
+[
+    {
+        "userId": "1234567890",
+        "fingerprint": "2000",
+        "miliseconds": "1234567890"
+    },
+    {
+        "userId": "1234567890",
+        "fingerprint": "1000",
+        "miliseconds": "12342344"
+    },
+    {
+        "userId": "1234567890",
+        "fingerprint": "500",
+        "miliseconds": "123555533"
+    }
+]
