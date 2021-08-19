@@ -1,8 +1,8 @@
 [
     {
         "names": "Omaira",
-        "f_last_name": "Palacios",
-        "m_last_name": "Sanchez",
+        "f_lastname": "Palacios",
+        "m_lastname": "Sanchez",
         "birthday": "1998/07/08",
         "phone": "99999999",
         "userId": "1234567890",
