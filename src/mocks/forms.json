@@ -2,6 +2,7 @@
   {
     "formId": "form-transport-footprint",
     "title": "Uso de transporte",
+    "svg": "transport",
     "pages": [
         { 
           "questionId": "form0001",
