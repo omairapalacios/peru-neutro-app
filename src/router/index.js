@@ -12,7 +12,6 @@ const routerOptions = [
   { path: '/profile', name: 'MyProfile' },
   { path: '/certificate', name: 'RequestCertificate' },
   { path: '/advances', name: 'MyAdvances' },
-  { path: '/advances', name: 'MyAdvances' },
   { path: '/advance/:id', name: 'AdvanceDetail' },
   { path: '/addfingerprint/:sectionId', name: 'AddFingerprint' },
   { path: '*', name: 'NotFound' },
