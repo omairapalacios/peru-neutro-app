@@ -6,7 +6,11 @@
 </template>
 
 <script>
+/* eslint-disable global-require */
 export default {
+  created() {
+    this.$store.commit('SET_LAYOUT', 'main-layout');
+  },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
     Sections: () => import('./Sections.vue'),
