@@ -15,28 +15,33 @@ export default {
     return {
       sections: [
         {
-          title: 'Uso de Transporte',
-          icon: 'home',
+          title: 'Consumo de Combustible',
+          image: `${require('@/assets/images/transport.svg')}`,
+          description: 'Me comprometo a reducir el cosumo de combustible de mi vehiculo',
           form: 'form-transport-footprint',
         },
         {
           title: 'Generación de Energía',
-          icon: 'home',
+          image: `${require('@/assets/images/transport.svg')}`,
+          description:
+            'Me comprometo a reducir el cosumo de combustible utilizado para cocinar',
           form: 'form-energy-footprint',
         },
         {
           title: 'Consumo de E.Eléctrica',
-          icon: 'home',
+          image: `${require('@/assets/images/transport.svg')}`,
           form: 'form-electric-footprint',
         },
         {
           title: 'Consumo de agua',
-          icon: 'home',
+          image: `${require('@/assets/images/transport.svg')}`,
+          description:
+            'Me comprometo a reducir el cosumo de combustible utilizado para cocinar',
           form: 'form-water-footprint',
         },
         {
           title: 'Generacion de NF3',
-          icon: 'home',
+          image: '../../assets/images/transport.svg',
           form: 'form-nf3-footprint',
         },
       ],

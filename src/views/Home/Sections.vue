@@ -1,33 +1,33 @@
 <template>
-  <v-row class="d-flex flex-wrap justify-center my-5">
+  <v-row class="d-flex flex-wrap justify-center">
     <v-card
       :key="item.form"
-      v-for="(item, index) in sections"
-      width="120px"
-      :class="[
-        'pa-2 d-flex flex-column justify-center text-center align-center',
-        `item-${index}`,
-      ]"
+      v-for="item in sections"
+      width="300px"
+      height="200px"
+      class="card mx-4 py-2 px-4 rounded-xl d-flex flex-column justify-center align-center"
       outlined
-      color="transparent"
-      ><v-card
-        width="80px"
-        height="80px"
-        class="d-flex border-blue rounded-circle justify-center text-center align-center"
+    >
+      <v-avatar
+        style="position: absolute; bottom: 40%"
+        rounded
+        width="200px"
+        class="pa-2 my-5"
+        height="200px"
       >
-        <v-card
-          width="50px"
-          height="50px"
-          color="sky"
-          class="d-flex rounded-circle justify-center text-center"
-        >
-          <v-icon class="material-icons-outlined" color="primary">{{
-            item.icon
-          }}</v-icon></v-card
-        ></v-card
-      ><small class="caption my-2">{{ item.title }}</small></v-card
-    ></v-row
-  >
+        <img width="120" height="120" :src="item.image" />
+      </v-avatar>
+      <h3 class="mt-8">{{ item.title }}</h3>
+      <p class="subtitle-2">{{ item.description }}</p>
+      <v-radio-group v-model="radioGroup">
+        <v-radio v-for="n in 3" :key="n" :label="`Radio ${n}`" :value="n"></v-radio>
+      </v-radio-group>
+      <v-checkbox
+        dark
+        v-model="checkbox"
+        :label="`Checkbox 1: ${checkbox.toString()}`"
+      ></v-checkbox></v-card
+  ></v-row>
 </template>
 
 <script>
@@ -38,14 +38,18 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      radioGroup: 1,
+      checkbox: true,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.border-blue {
-  border: 7px #2f80ed solid !important;
-}
-.item-0 {
-  margin: 0 45px !important;
+.card {
+  margin: 100px 0 0;
+  text-align: center;
 }
 </style>
