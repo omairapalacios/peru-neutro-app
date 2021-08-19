@@ -1,16 +1,16 @@
 <template>
  <div class="d-flex justify-center pa-5 my-3">
     <div class="semicircle d-flex">
-        <v-img src="@/assets/images/accumulate1.svg"
+        <v-img src="@/assets/images/transport.svg"
         max-width="60" max-height="60"
         class="img1"/>
-        <v-img src="@/assets/images/accumulate2.svg"
+        <v-img src="@/assets/images/water.svg"
         max-width="60" class="img2"  max-height="60"/>
-        <v-img src="@/assets/images/accumulate3.svg"
+        <v-img src="@/assets/images/cook.svg"
         max-width="60"  class="img3" max-height="60"/>
         <div class="value-center text-center">
             <h1>100</h1>
-            <h1>Agosto</h1>
+            <h1 class="text-title">Agosto</h1>
         </div>
     </div>
  </div>
