@@ -16,6 +16,7 @@
           dense
           name="f_lastname"
           placeholder="Apellido Paterno"
+          v-model.trim="dataUser.f_lastname"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -27,6 +28,19 @@
           dense
           name="m_lastname"
           placeholder="Apellido Materno"
+          v-model.trim="dataUser.m_lastname"
+        ></v-text-field>
+        <label
+          class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
+          for="m_lastname"
+          >Nombres</label
+        >
+        <v-text-field
+          outlined
+          dense
+          name="names"
+          placeholder="Nombres"
+          v-model.trim="dataUser.names"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -39,6 +53,7 @@
           type="date"
           name="birthday"
           placeholder="dd/mm/yyyy"
+          v-model.trim="dataUser.birthday"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -51,6 +66,7 @@
           type="number"
           name="phone"
           placeholder="999999999"
+          v-model.trim="dataUser.phone"
         ></v-text-field
       ></v-row>
       <v-btn width="100%" class="rounded-xl my-5" color="secondary" @click="registerUser">
@@ -69,6 +85,9 @@
   ></v-container>
 </template>
 <script>
+import dayjs from 'dayjs';
+import { addDocument } from '../../services/firebase/methodos';
+
 export default {
   data() {
     return {
@@ -78,7 +97,19 @@ export default {
         description: 'Gracias por cuidar nuestro medio ambiente...!!!',
         textBtn: 'Continuar',
       },
+      dataUser: {
+        names: '',
+        f_lastname: '',
+        m_lastname: '',
+        birthday: '',
+        phone: '99999999',
+      },
     };
+  },
+  computed: {
+    dateBirthday() {
+      return dayjs(this.dataUser.birthday).format('YYYY/MM/DD');
+    },
   },
   components: {
     ModalConfirm: () => import('../../components/ModalConfirm.vue'),
@@ -89,6 +120,8 @@ export default {
     },
     registerUser() {
       this.dialogConfirm = true;
+      this.dataUser.birthday = this.dateBirthday;
+      addDocument('USERS', this.dataUser);
     },
   },
 };

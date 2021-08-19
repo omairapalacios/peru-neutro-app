@@ -17,4 +17,4 @@ const peruNeutro = firebase.initializeApp(firebaseConfig);
 const db = peruNeutro.database();
 const auth = peruNeutro.auth();
 
-export { db, authAdmin, auth };
+export { db, auth };
