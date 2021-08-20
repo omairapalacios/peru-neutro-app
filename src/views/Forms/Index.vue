@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import form from '@/mocks/forms.json';
 import { addDocument } from '@/services/firebase/methods';
 
@@ -45,10 +46,8 @@ export default {
     this.$store.commit('SET_LAYOUT', 'login-layout');
     // mock de traer form por id y uid
     [this.currentForm] = form.filter((e) => e.formId === this.formId);
-    const userId = 'EtKqyTS22jPkBG5swy1l95BXS2Z2';
     //
     this.preference.formId = this.formId;
-    this.preference.userId = userId;
   },
   computed: {
     formId() {
@@ -64,6 +63,7 @@ export default {
       const progressNumber = ((this.currentPageNumber + 1) * 100) / this.totalPages;
       return progressNumber.toString();
     },
+    ...mapState(['user']),
   },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
@@ -73,6 +73,7 @@ export default {
   methods: {
     async saveConfiguration() {
       // mock de guardar en firebase
+      this.preference.userId = this.user.userId;
       this.preference.miliseconds = new Date().getTime();
       await addDocument('PREFERENCES', this.preference);
       //

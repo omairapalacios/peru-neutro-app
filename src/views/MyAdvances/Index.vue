@@ -6,7 +6,7 @@
           <v-icon color="primary">chevron_left</v-icon>
         </v-btn>
       </v-row>
-      <h1 class="text-title">Hola! {{ user.names }}</h1>
+      <h1 class="text-title">Hola {{ user.names }}!</h1>
       <Accumulate />
     </v-card>
     <div v-for="preference in preferences" :key="preference.title">
@@ -23,7 +23,6 @@ import forms from '@/mocks/forms.json';
 export default {
   data: () => ({
     preferences: [],
-    userId: 'EtKqyTS22jPkBG5swy1l95BXS2Z2',
   }),
   components: {
     AddFingerprintCard: () => import('./AddFingerprintCard.vue'),
@@ -41,7 +40,7 @@ export default {
     async getMyPreferences() {
       const myPreferences = await getDocumentByQuery('PREFERENCES', {
         key: 'userId',
-        value: this.userId,
+        value: this.user.userId,
       });
       this.preferences = myPreferences.map((preference) => {
         const [form] = forms.filter((e) => e.formId === preference.formId);
