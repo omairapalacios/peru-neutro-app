@@ -50,7 +50,7 @@ import {
   signInUser,
   currentUser,
   getDocumentById,
-} from '../../services/firebase/methodos';
+} from '../../services/firebase/methods';
 
 export default {
   data() {
@@ -68,11 +68,9 @@ export default {
       try {
         await signInUser(this.email, this.password);
         let user = currentUser();
-        console.log('USER', user);
         user = await getDocumentById('USERS', user.uid);
-        console.log('USER', user);
-        this.$store.dispatch('getUser', { email: this.email, ...user });
         this.$router.push('home');
+        this.$store.dispatch('getUser', { email: this.email, ...user });
       } catch (error) {
         console.log(error);
         switch (error.code) {

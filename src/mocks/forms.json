@@ -20,8 +20,8 @@
   {
     "formId": "form-energy-footprint",
     "title": "Generación de Energía",
+    "description": "Me comprometo a reducir el consumo de energía",
     "svg": "cook",
-    "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
         { 
           "questionId": "form0001",
@@ -68,13 +68,13 @@
   },
   {
     "formId": "form-nf3-footprint",
-    "title": "¿Tienes pantallas de televisión en tu domicilio?",
+    "title": "Consumo de NF3",
     "svg": "transport",
     "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
         { 
           "questionId": "form0001",
-          "question": "¿Tienes transporte propio?",
+          "question": "¿Tienes pantallas de televisión en tu domicilio?",
           "options": ["SI", "NO"]
         }
     ]

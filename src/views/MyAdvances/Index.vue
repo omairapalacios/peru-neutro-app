@@ -10,40 +10,49 @@
       <Accumulate />
     </v-card>
     <div v-for="preference in preferences" :key="preference.title">
-      <AddFingerprint :preference="preference" />
+      <AddFingerprintCard :preference="preference" />
     </div>
   </div>
 </template>
 
 <script>
-import mockPreferences from '@/mocks/preferences.json';
-import forms from '@/mocks/forms.json';
 import { mapState } from 'vuex';
+import { getDocumentByQuery } from '@/services/firebase/methods';
+import forms from '@/mocks/forms.json';
 
 export default {
   data: () => ({
     preferences: [],
-    userId: '1234567890',
+    userId: 'EtKqyTS22jPkBG5swy1l95BXS2Z2',
   }),
   components: {
-    AddFingerprint: () => import('./AddFingerprint.vue'),
+    AddFingerprintCard: () => import('./AddFingerprintCard.vue'),
     Accumulate: () => import('./Accumulate.vue'),
   },
   computed: {
     ...mapState(['user']),
   },
-  created() {
+  async created() {
     // mock getPreferencebyId
     this.$store.commit('SET_LAYOUT', 'main-layout');
-    this.preferences = mockPreferences.map((preference) => {
-      const [form] = forms.filter((e) => e.formId === preference.formId);
-      const { title, svg } = form;
-      return {
-        ...preference,
-        title,
-        svg,
-      };
-    });
+    await this.getMyPreferences();
+  },
+  methods: {
+    async getMyPreferences() {
+      const myPreferences = await getDocumentByQuery('PREFERENCES', {
+        key: 'userId',
+        value: this.userId,
+      });
+      this.preferences = myPreferences.map((preference) => {
+        const [form] = forms.filter((e) => e.formId === preference.formId);
+        const { title, svg } = form;
+        return {
+          ...preference,
+          title,
+          svg,
+        };
+      });
+    },
   },
 };
 </script>

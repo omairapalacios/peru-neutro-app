@@ -3,7 +3,7 @@
     <Toolbar :title="currentForm.title" :goBack="goBack"/>
     <div class="d-flex flex-column body">
       <ProgressBar :progress="progress" />
-      <FormSelect :form="currentPage" :changeSectionId="changeSectionId"/>
+      <FormSelect :form="currentPage" :changeSectionId="changeSectionId" :totalPages="totalPages"/>
       <v-row class="actions d-flex justify-center align-center">
         <v-btn
           v-if="currentPageNumber + 1 < totalPages"
@@ -23,6 +23,7 @@
 
 <script>
 import form from '@/mocks/forms.json';
+import { addDocument } from '@/services/firebase/methods';
 
 export default {
   name: 'Forms',
@@ -37,9 +38,10 @@ export default {
     },
   }),
   created() {
+    this.$store.commit('SET_LAYOUT', 'login-layout');
     // mock de traer form por id y uid
     [this.currentForm] = form.filter((e) => e.formId === this.formId);
-    const userId = '1234567890';
+    const userId = 'EtKqyTS22jPkBG5swy1l95BXS2Z2';
     //
     this.preference.formId = this.formId;
     this.preference.userId = userId;
@@ -65,10 +67,10 @@ export default {
     FormSelect: () => import('./FormSelect.vue'),
   },
   methods: {
-    saveConfiguration() {
+    async saveConfiguration() {
       // mock de guardar en firebase
       this.preference.miliseconds = new Date().getTime();
-      console.log(this.preference);
+      await addDocument('PREFERENCES', this.preference);
       //
       this.$router.push({
         name: 'Congratulations',
