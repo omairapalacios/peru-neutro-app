@@ -71,7 +71,6 @@ export default {
       // mock de guardar en firebase
       this.preference.miliseconds = new Date().getTime();
       await addDocument('PREFERENCES', this.preference);
-      console.log(this.preference);
       //
       this.$router.push({
         name: 'Congratulations',
