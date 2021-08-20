@@ -22,6 +22,7 @@
     "title": "Generación de Energía",
     "description": "Me comprometo a reducir el consumo de energía",
     "svg": "cook",
+    "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
         { 
           "questionId": "form0001",

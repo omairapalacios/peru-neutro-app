@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="ma-0 pa-0" elevation="1" color="transparent" outlined flat>
+  <v-toolbar class="ma-0 pa-0" elevation="0" color="white" outlined flat>
     <v-btn icon @click="goBack">
       <v-icon color="primary">chevron_left</v-icon>
     </v-btn>
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-toolbar{
-    height: 10vh !important;
-  }
+.v-toolbar {
+  height: 10vh !important;
+}
 </style>
