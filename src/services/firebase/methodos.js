@@ -103,3 +103,7 @@ export function signInUser(email, password) {
 export function signOutUser() {
   return auth.signOut();
 }
+
+export function currentUser() {
+  return auth.currentUser;
+}

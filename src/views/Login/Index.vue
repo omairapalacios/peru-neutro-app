@@ -46,7 +46,11 @@
   >
 </template>
 <script>
-import { signInUser } from '../../services/firebase/methodos';
+import {
+  signInUser,
+  currentUser,
+  getDocumentById,
+} from '../../services/firebase/methodos';
 
 export default {
   data() {
@@ -63,6 +67,11 @@ export default {
     async authUser() {
       try {
         await signInUser(this.email, this.password);
+        let user = currentUser();
+        console.log('USER', user);
+        user = await getDocumentById('USERS', user.uid);
+        console.log('USER', user);
+        this.$store.dispatch('getUser', { email: this.email, ...user });
         this.$router.push('home');
       } catch (error) {
         console.log(error);
