@@ -8,9 +8,9 @@
           :rotate='360'
           :size='80'
           :width='5'
-          :value='porcentaje'
+          :value='fingerprint'
           color= 'gray'
-        >{{porcentaje}}</v-progress-circular
+        >{{fingerprint}}</v-progress-circular
       ></v-col>
       <v-col cols="8"
         ><p>
@@ -25,7 +25,11 @@
 
 <script>
 export default {
-  props: ['porcentaje'],
+  props: {
+    fingerprint: {
+      type: Number,
+    },
+  },
 };
 </script>
 

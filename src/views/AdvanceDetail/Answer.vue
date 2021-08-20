@@ -10,18 +10,31 @@
         </v-icon>
       </v-col>
       <v-col cols="7" class="my-0 py-0">
-        <p class="my-0 py-0">18/08/2021</p>
-        <p class="my-0 py-0">Foto cargada</p>
+        <p class="my-0 py-0">{{date}}</p>
       </v-col>
       <v-col cols="3" class="my-0 py-0">
-          <span>2 GAL</span>
+          <span>{{answer.value}} GAL</span>
       </v-col>
     </v-row>
 </template>
 
 <script>
-export default {
+import dayjs from 'dayjs';
 
+export default {
+  props: {
+    answer: {
+      type: Object,
+    },
+    miliseconds: {
+      type: String,
+    },
+  },
+  computed: {
+    date() {
+      return dayjs(new Date(Number(this.miliseconds))).format('DD/MM/YYYY');
+    },
+  },
 };
 </script>
 
