@@ -3,6 +3,78 @@
     "formId": "form-transport-footprint",
     "title": "Uso de transporte",
     "svg": "transport",
+    "description": "Me comprometo a reducir el consumo de combustible de mi vehiculo",
+    "pages": [
+        { 
+          "questionId": "form0001",
+          "question": "¿Tienes transporte propio?",
+          "options": ["SI", "NO"]
+        },
+        {
+          "questionId": "form0002",
+          "question": "2. ¿Que tipo de combustible utilizas?",
+          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
+        }
+    ]
+  },
+  {
+    "formId": "form-energy-footprint",
+    "title": "Generación de Energía",
+    "svg": "cook",
+    "pages": [
+        { 
+          "questionId": "form0001",
+          "question": "¿Tienes transporte propio?",
+          "options": ["SI", "NO"]
+        },
+        {
+          "questionId": "form0002",
+          "question": "2. ¿Que tipo de combustible utilizas?",
+          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
+        }
+    ]
+  },
+  {
+    "formId": "form-water-footprint",
+    "title": "Consumo de agua",
+    "svg": "water",
+    "description": "Me comprometo a reducir el consumo de agua en mi hogar",
+    "pages": [
+        { 
+          "questionId": "form0001",
+          "question": "¿Tienes transporte propio?",
+          "options": ["SI", "NO"]
+        },
+        {
+          "questionId": "form0002",
+          "question": "2. ¿Que tipo de combustible utilizas?",
+          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
+        }
+    ]
+  },
+  {
+    "formId": "form-electric-footprint",
+    "title": "Consumo de E.Eléctrica",
+    "svg": "transport",
+    "description": "Me comprometo a reducir el consumo de energía en mi hogar",
+    "pages": [
+        { 
+          "questionId": "form0001",
+          "question": "¿Tienes transporte propio?",
+          "options": ["SI", "NO"]
+        },
+        {
+          "questionId": "form0002",
+          "question": "2. ¿Que tipo de combustible utilizas?",
+          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
+        }
+    ]
+  },
+  {
+    "formId": "form-nf3-footprint",
+    "title": "Generacion de NF3",
+    "svg": "transport",
+    "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
         { 
           "questionId": "form0001",

@@ -16,7 +16,7 @@
           class="pa-2 my-5"
           height="200px"
         >
-          <img width="120" height="120" :src="item.image" />
+          <img width="120" height="120" :src=" `${require(`@/assets/images/${item.svg}.svg`)}`" />
         </v-avatar>
       </v-row>
       <v-row
