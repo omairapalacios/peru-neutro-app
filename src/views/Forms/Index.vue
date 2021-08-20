@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Toolbar title="Uso de Transporte" :goBack="goBack"/>
+    <Toolbar :title="currentForm.title" :goBack="goBack"/>
     <div class="d-flex flex-column body">
       <ProgressBar :progress="progress" />
       <FormSelect :form="currentPage" :changeSectionId="changeSectionId"/>
@@ -25,6 +25,7 @@
 import form from '@/mocks/forms.json';
 
 export default {
+  name: 'Forms',
   data: () => ({
     currentForm: [],
     currentPageNumber: 0,

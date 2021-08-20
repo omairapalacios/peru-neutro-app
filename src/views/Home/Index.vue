@@ -4,7 +4,8 @@
     <v-row class="d-flex flex-wrap justify-center">
       <Section
        v-for="section in forms" :key="section.formId"
-      :section="section" />
+      :section="section"
+      />
     </v-row>
   </v-container>
 </template>
