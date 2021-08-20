@@ -24,13 +24,13 @@
     "pages": [
         { 
           "questionId": "form0001",
-          "question": "¿Tienes transporte propio?",
+          "question": "1. ¿Cocinas en tu hogar?",
           "options": ["SI", "NO"]
         },
         {
           "questionId": "form0002",
-          "question": "2. ¿Que tipo de combustible utilizas?",
-          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
+          "question": "2. ¿Para cocinar que tipo de combustible utilizas?",
+          "options": ["PETROLEO INDUSTRIAL", "PETROLEO INDUSTRIAL 6", "GASOHOL (86, 90, 95)", "DIESSEL", "GLP", "GNV"]
         }
     ]
   },
@@ -42,13 +42,8 @@
     "pages": [
         { 
           "questionId": "form0001",
-          "question": "¿Tienes transporte propio?",
+          "question": "¿Consumes agua en tu domicilio?",
           "options": ["SI", "NO"]
-        },
-        {
-          "questionId": "form0002",
-          "question": "2. ¿Que tipo de combustible utilizas?",
-          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
         }
     ]
   },
@@ -72,7 +67,7 @@
   },
   {
     "formId": "form-nf3-footprint",
-    "title": "Generacion de NF3",
+    "title": "¿Tienes pantallas de televisión en tu domicilio?",
     "svg": "transport",
     "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
@@ -80,11 +75,6 @@
           "questionId": "form0001",
           "question": "¿Tienes transporte propio?",
           "options": ["SI", "NO"]
-        },
-        {
-          "questionId": "form0002",
-          "question": "2. ¿Que tipo de combustible utilizas?",
-          "options": ["GASOHOL (86, 90, 95)", "DISSEL", "GLP", "GNV"]
         }
     ]
   }

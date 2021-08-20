@@ -1,15 +1,34 @@
 function getSectionTransport(answer) {
   switch (answer) {
     case 'GASOHOL (86, 90, 95)':
-      return 'sectionGasohol01';
+      return 'sectionTransportGasohol01';
     case 'DISSEL':
-      return 'sectionDissel01';
+      return 'sectionTransportDissel01';
     case 'GLP':
-      return 'sectionGLP01';
+      return 'sectionTransportGLP01';
     case 'GNV':
-      return 'sectionGNV01';
+      return 'sectionTransportGNV01';
     default:
-      return 'sectionGLP01';
+      return 'sectionTransportGLP01';
+  }
+}
+
+function getSectionEnergy(answer) {
+  switch (answer) {
+    case 'PETROLEO INDUSTRIAL':
+      return 'sectionEnergyIndustrial01';
+    case 'PETROLEO INDUSTRIAL 6':
+      return 'sectionEnergyIndustrial6';
+    case 'GASOHOL (86, 90, 95)':
+      return 'sectionEnergyGasohol01';
+    case 'DIESSEL':
+      return 'sectionEnergyDiessel01';
+    case 'GLP':
+      return 'sectionEnergyGLP01';
+    case 'GNV':
+      return 'sectionEnergyGNV01';
+    default:
+      return 'sectionEnergyGLP01';
   }
 }
 
@@ -18,7 +37,7 @@ export default function getSection(formId, answer) {
     case 'form-transport-footprint':
       return getSectionTransport(answer);
     case 'form-energy-footprint':
-      return 'sectionEnergy01';
+      return getSectionEnergy(answer);
     case 'form-electric-footprint':
       return 'sectionEnergy01';
     case 'form-water-footprint':
