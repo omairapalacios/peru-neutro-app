@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Toolbar title="Avance" :goBack="goBack" />
+  <div v-if="currentAdvanceDetail">
+    <Toolbar :title="currentAdvanceDetail.title" :goBack="goBack" />
     <AdvanceByMonth/>
     <CarbonEmissions :fingerprint='fingerprintTotal'/>
     <RegisterConsume/>
@@ -24,17 +24,27 @@
 <script>
 import { mapState } from 'vuex';
 import { getDocumentByQuery } from '@/services/firebase/methods';
+import data from '@/mocks/sections.json';
 
 export default {
-  data: () => ({
-    currentAdvanceDetail: [],
-  }),
+  data() {
+    return {
+      currentAdvanceDetail: [],
+    };
+  },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
     AdvanceByMonth: () => import('./AdvanceByMonth.vue'),
     CarbonEmissions: () => import('./CarbonEmissions.vue'),
     RegisterConsume: () => import('./RegisterConsume.vue'),
     Answer: () => import('./Answer.vue'),
+  },
+  mounted() {
+    console.log(this.currentAdvanceDetail);
+    if (this.currentAdvanceDetail.length !== 0) {
+      [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
+      console.log(this.currentAdvanceDetail.answers);
+    }
   },
   async created() {
     await this.getAnswers();
