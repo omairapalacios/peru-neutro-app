@@ -1,10 +1,9 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="10">
+  <v-row >
       <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-      <v-carousel :show-arrows="false" height="250" >
+      <v-carousel :show-arrows="false" height="200" >
         <v-carousel-item>
-          <v-row justify="space-around" align="center" class="mt-12">
+          <v-row justify="space-around" align="center" class="mt-2">
             <div v-for="(item, index) in listOfMonths" :key="item">
               <p>{{ item }}</p>
               <v-btn icon color="green" v-if="index == 0">
@@ -20,7 +19,6 @@
           <p>hola</p>
         </v-carousel-item>
       </v-carousel>
-    </v-col>
   </v-row>
 </template>
 
