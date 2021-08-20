@@ -10,7 +10,7 @@
       <Accumulate />
     </v-card>
     <div v-for="preference in preferences" :key="preference.title">
-      <AddFingerprint :preference="preference" />
+      <AddFingerprintCard :preference="preference" />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     userId: '1234567890',
   }),
   components: {
-    AddFingerprint: () => import('./AddFingerprint.vue'),
+    AddFingerprintCard: () => import('./AddFingerprintCard.vue'),
     Accumulate: () => import('./Accumulate.vue'),
   },
   created() {

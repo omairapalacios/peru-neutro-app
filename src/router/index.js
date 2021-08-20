@@ -13,6 +13,7 @@ const routerOptions = [
   { path: '/advances', name: 'MyAdvances' },
   { path: '/advances', name: 'MyAdvances' },
   { path: '/advance/:id', name: 'AdvanceDetail' },
+  { path: '/addfingerprint/:sectionId', name: 'AddFingerprint' },
   { path: '*', name: 'NotFound' },
 ];
 
