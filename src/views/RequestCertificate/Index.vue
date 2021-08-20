@@ -1,6 +1,8 @@
 <template>
   <v-container class="pa-10">
-    <h1 class="secondary--text">{{ user ? user.names : 'Jeff' }}!</h1>
+    <h1 class="secondary--text">
+      {{ Object.values(user).length !== 0 ? user.names : 'Jeff' }}!
+    </h1>
     <v-row class="d-flex flex-column text-center align-center my-6">
       <p class="font-weigth-bold">
         Felicidades te hemos registrado en la comunicadad Perú neutro
@@ -26,6 +28,7 @@
 
 <script>
 import { mapState } from 'vuex';
+
 export default {
   computed: { ...mapState(['user']) },
 };
