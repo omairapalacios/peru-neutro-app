@@ -13,5 +13,9 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    "linebreak-style": 0,
+    'linebreak-style': ['error', 'windows'],
+    'quotes': [2,"single"],
+    'max-len': ["error", { "code": 132 }]
   },
 };
