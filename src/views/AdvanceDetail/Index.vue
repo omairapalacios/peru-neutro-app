@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="currentAdvanceDetail">
     <Toolbar :title="currentAdvanceDetail.title" :goBack="goBack" />
     <AdvanceByMonth/>
     <CarbonEmissions porcentage='0.28'/>
@@ -13,18 +13,23 @@ import data from '@/mocks/answers.json';
 import { getDocumentByQuery } from '@/services/firebase/methods';
 
 export default {
-  data: () => ({
-    currentAdvanceDetail: [],
-  }),
+  data() {
+    return {
+      currentAdvanceDetail: [],
+    }
+  },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
     AdvanceByMonth: () => import('./AdvanceByMonth.vue'),
     CarbonEmissions: () => import('./CarbonEmissions.vue'),
     RegisterConsume: () => import('./RegisterConsume.vue'),
   },
-  created() {
-    [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
-    console.log(this.currentAdvanceDetail.answers);
+  mounted() {
+    console.log(this.currentAdvanceDetail)
+    if (this.currentAdvanceDetail.length !== 0) {
+      [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
+      console.log(this.currentAdvanceDetail.answers);
+    }
   },
   computed: { ...mapState(['user']) },
   methods: {
@@ -40,3 +45,6 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+[v-cloak] { display: none }
+</style>

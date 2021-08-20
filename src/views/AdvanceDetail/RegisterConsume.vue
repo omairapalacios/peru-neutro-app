@@ -6,11 +6,21 @@
           mdi-gas-station-outline
         </v-icon>
       </v-col>
-      <v-col cols="8" class="my-0 py-0"
-        ><p class="my-0 py-0">Registra tu consumo del mes</p></v-col
-      >
+      <v-col cols="8" class="my-0 py-0"><p class="my-0 py-0">Registra tu consumo del mes</p></v-col>
       <v-col cols="2" class="my-0 py-0">
-        <v-icon large color="black" class="my-0 py-0">
+        <v-icon
+          @click="
+            $router.push({
+              name: 'AddFingerprint',
+              params: {
+                sectionId: sectionId
+              }
+            })
+          "
+          large
+          color="black"
+          class="my-0 py-0"
+        >
           mdi-plus
         </v-icon>
       </v-col>
@@ -23,12 +33,7 @@
         <span> GAL</span>
       </v-col>
     </v-row>
-    <v-row
-      v-for="item in answer"
-      :key="item"
-      justify="center"
-      align="center"
-    >
+    <v-row v-for="item in answer" :key="item" justify="center" align="center">
       <v-col cols="2" class="my-0 py-0">
         <v-icon large color="green darken-2" class="my-0 py-0">
           mdi-gas-station-outline
@@ -39,7 +44,7 @@
         <p class="my-0 py-0">Foto cargada</p>
       </v-col>
       <v-col cols="3" class="my-0 py-0">
-          <span>2 GAL</span>
+        <span>2 GAL</span>
       </v-col>
     </v-row>
   </v-col>
@@ -48,6 +53,15 @@
 <script>
 export default {
   props: ['month', 'answer'],
+  computed: {
+    sectionId() {
+      console.log(this.$route.params.sectionId);
+      return this.$route.params.sectionId;
+    },
+  },
+  created() {
+    console.log(this.$props);
+  },
 };
 </script>
 
