@@ -5,7 +5,7 @@
     width="300px"
     height="200px"
     class="card mx-4 py-2 px-4 rounded-xl d-flex flex-column justify-center align-center"
-    :disabled="disabled"
+    :disabled="!disabled"
     @click="goForm"
   >
     <v-row class="d-flex flex-column justify-center align-center py-5">
