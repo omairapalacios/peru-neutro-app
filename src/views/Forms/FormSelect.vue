@@ -24,6 +24,9 @@ export default {
     changeSectionId: {
       type: Function,
     },
+    totalPages: {
+      type: Number,
+    },
   },
   methods: {
     saveAnswer(option) {
@@ -31,6 +34,9 @@ export default {
         this.$router.push({
           name: 'Home',
         });
+      } else if (this.totalPages === 1) {
+        const section = getSectionValue(this.formId);
+        this.changeSectionId(section);
       } else if (!['SI', 'NO'].includes(option)) {
         const section = getSectionValue(this.formId, option);
         this.changeSectionId(section);

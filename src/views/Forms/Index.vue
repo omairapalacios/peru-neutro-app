@@ -3,7 +3,7 @@
     <Toolbar :title="currentForm.title" :goBack="goBack"/>
     <div class="d-flex flex-column body">
       <ProgressBar :progress="progress" />
-      <FormSelect :form="currentPage" :changeSectionId="changeSectionId"/>
+      <FormSelect :form="currentPage" :changeSectionId="changeSectionId" :totalPages="totalPages"/>
       <v-row class="actions d-flex justify-center align-center">
         <v-btn
           v-if="currentPageNumber + 1 < totalPages"
@@ -37,6 +37,7 @@ export default {
     },
   }),
   created() {
+    this.$store.commit('SET_LAYOUT', 'login-layout');
     // mock de traer form por id y uid
     [this.currentForm] = form.filter((e) => e.formId === this.formId);
     const userId = '1234567890';
