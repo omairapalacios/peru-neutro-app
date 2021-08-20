@@ -2,7 +2,7 @@
   <v-col cols="12" class="mt-8">
     <p>Emisiones de carbono</p>
     <v-divider></v-divider>
-    <v-row class="py-5" justify="center">
+    <v-row class="py-3" justify="center">
       <v-col cols="3">
         <v-progress-circular
           :rotate='360'

@@ -1,15 +1,25 @@
 <template>
   <div>
-    <Toolbar :title="currentAdvanceDetail.title" :goBack="goBack" />
+    <Toolbar title="Avance" :goBack="goBack" />
     <AdvanceByMonth/>
     <CarbonEmissions porcentage='0.28'/>
-    <RegisterConsume :answer="currentAdvanceDetail.answers"/>
+    <RegisterConsume/>
+    <v-row justify="space-between" align="center" class="px-4 header text-white">
+      <v-col cols="6">
+        <span>Agosto</span>
+      </v-col>
+      <v-col cols="6">
+        <span> GAL</span>
+      </v-col>
+    </v-row>
+    <div v-for="fingerprint in currentAdvanceDetail" :key="fingerprint.user_date">
+        <Answer :answer="fingerprint"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import data from '@/mocks/answers.json';
 import { getDocumentByQuery } from '@/services/firebase/methods';
 
 export default {
@@ -21,15 +31,15 @@ export default {
     AdvanceByMonth: () => import('./AdvanceByMonth.vue'),
     CarbonEmissions: () => import('./CarbonEmissions.vue'),
     RegisterConsume: () => import('./RegisterConsume.vue'),
+    Answer: () => import('./Answer.vue'),
   },
-  created() {
-    [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
-    console.log(this.currentAdvanceDetail.answers);
+  async created() {
+    await this.getAnswers();
   },
   computed: { ...mapState(['user']) },
   methods: {
     async getAnswers() {
-      await getDocumentByQuery('ANSWERS', {
+      this.currentAdvanceDetail = await getDocumentByQuery('ANSWERS', {
         key: 'userId',
         value: this.user.userId,
       });
@@ -40,3 +50,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.header {
+  background-color: #98c450;
+}
+</style>
