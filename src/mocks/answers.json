@@ -1,12 +1,12 @@
 [
     {
         "userId": "1234567890",
-        "sectionId": "sectionTransportGasohol01",
+        "sectionId": "sectionTransportGLP01",
         "miliseconds": "1629258671",
         "user_date": "1234567890-1629258671",
         "answers": [
             {
-                "questionId": "TransportGasohol01Q1",
+                "questionId": "sectionTransportGLP01Q1",
                 "value": "1000",
                 "status": "registrado"
             }

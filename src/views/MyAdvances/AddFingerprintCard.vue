@@ -5,7 +5,13 @@
             :src=" `${require(`@/assets/images/${preference.svg}.svg`)}`"
             max-width="50"  height="50"/>
             <v-card-text class="mx-5">{{preference.title}}</v-card-text>
-             <v-btn icon large class="ml-auto">
+             <v-btn icon large class="ml-auto"
+             @click="$router.push({
+               name: 'AdvanceDetail',
+               params: {
+                sectionId : preference.sectionId,
+               }
+               })">
                 <v-icon >add</v-icon>
              </v-btn>
         </v-card>

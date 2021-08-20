@@ -8,7 +8,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import data from '@/mocks/answers.json';
+import { getDocumentByQuery } from '@/services/firebase/methods';
 
 export default {
   data: () => ({
@@ -21,11 +23,17 @@ export default {
     RegisterConsume: () => import('./RegisterConsume.vue'),
   },
   created() {
-    console.log(this.$route.params);
-    [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.id);
+    [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
     console.log(this.currentAdvanceDetail.answers);
   },
+  computed: { ...mapState(['user']) },
   methods: {
+    async getAnswers() {
+      await getDocumentByQuery('ANSWERS', {
+        key: 'userId',
+        value: this.user.userId,
+      });
+    },
     goBack() {
       this.$router.go(-1);
     },
