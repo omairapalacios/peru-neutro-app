@@ -10,6 +10,7 @@ const routerOptions = [
   { path: '/forms/:formId', name: 'Forms' },
   { path: '/congratulations', name: 'Congratulations' },
   { path: '/profile', name: 'MyProfile' },
+  { path: '/certificate', name: 'RequestCertificate' },
   { path: '/advances', name: 'MyAdvances' },
   { path: '/advances', name: 'MyAdvances' },
   { path: '/advance/:id', name: 'AdvanceDetail' },
