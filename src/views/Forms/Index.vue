@@ -40,7 +40,7 @@ export default {
     this.$store.commit('SET_LAYOUT', 'login-layout');
     // mock de traer form por id y uid
     [this.currentForm] = form.filter((e) => e.formId === this.formId);
-    const userId = '1234567890';
+    const userId = 'EtKqyTS22jPkBG5swy1l95BXS2Z2';
     //
     this.preference.formId = this.formId;
     this.preference.userId = userId;

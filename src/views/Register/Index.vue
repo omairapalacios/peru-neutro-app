@@ -137,7 +137,7 @@
 </template>
 <script>
 import dayjs from 'dayjs';
-import { setDocumentById, createAuthUser } from '../../services/firebase/methodos';
+import { setDocumentById, createAuthUser } from '../../services/firebase/methods';
 
 export default {
   data() {
