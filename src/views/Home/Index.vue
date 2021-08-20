@@ -1,7 +1,11 @@
 <template>
   <v-container>
     <Toolbar title="Registro de Huella" />
-    <Sections :sections="forms" />
+    <v-row class="d-flex flex-wrap justify-center">
+      <Section
+       v-for="section in forms" :key="section.formId"
+      :section="section" />
+    </v-row>
   </v-container>
 </template>
 
@@ -14,7 +18,7 @@ export default {
   },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
-    Sections: () => import('./Sections.vue'),
+    Section: () => import('./Section.vue'),
   },
   data() {
     return {
