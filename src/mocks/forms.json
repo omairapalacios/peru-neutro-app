@@ -21,6 +21,7 @@
     "formId": "form-energy-footprint",
     "title": "Generación de Energía",
     "svg": "cook",
+    "description": "Me comprometo a reducir el consumo de combustible utilizado para cocinar",
     "pages": [
         { 
           "questionId": "form0001",
