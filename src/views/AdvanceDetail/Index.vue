@@ -21,12 +21,13 @@
 <script>
 import { mapState } from 'vuex';
 import { getDocumentByQuery } from '@/services/firebase/methods';
+import data from '@/mocks/sections.json';
 
 export default {
   data() {
     return {
       currentAdvanceDetail: [],
-    }
+    };
   },
   components: {
     Toolbar: () => import('../../components/ToolBar.vue'),
@@ -36,7 +37,7 @@ export default {
     Answer: () => import('./Answer.vue'),
   },
   mounted() {
-    console.log(this.currentAdvanceDetail)
+    console.log(this.currentAdvanceDetail);
     if (this.currentAdvanceDetail.length !== 0) {
       [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
       console.log(this.currentAdvanceDetail.answers);

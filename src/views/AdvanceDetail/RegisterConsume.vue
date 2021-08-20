@@ -1,6 +1,6 @@
 <template>
-   <v-container>
-      <v-row justify="center" align="center" class=" pa-3">
+ <v-col cols="12" class="py-2">
+      <v-row justify="center" align="center" class="">
       <v-col cols="2" class="my-0 py-0">
         <v-icon large color="green darken-2" class="my-0 py-0">
           mdi-gas-station-outline
@@ -47,7 +47,7 @@
         <span>2 GAL</span>
       </v-col>
     </v-row>
-  </v-container>
+  </v-col>
 </template>
 
 <script>
@@ -64,5 +64,3 @@ export default {
   },
 };
 </script>
-
-</template>
