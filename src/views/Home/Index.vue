@@ -31,13 +31,12 @@ export default {
     return {
       forms,
       preferencesFormId: [],
-      userId: 'EtKqyTS22jPkBG5swy1l95BXS2Z2',
     };
   },
   computed: { ...mapState(['user']) },
   methods: {
     async getMyPreferences() {
-      const preferences = await getDocumentByQuery('PREFERENCES', { key: 'userId', value: this.userId });
+      const preferences = await getDocumentByQuery('PREFERENCES', { key: 'userId', value: this.user.userId });
       this.preferencesFormId = preferences.map((e) => e.formId);
     },
   },
