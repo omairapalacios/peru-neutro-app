@@ -4,12 +4,8 @@
       height="200px"
       class="card mx-4 py-2 px-4 rounded-xl d-flex flex-column justify-center align-center"
       outlined
-       @click="$router.push({
-         name: 'Forms',
-         params: {
-           formId: section.formId
-         },
-       })"
+      :disabled="disabled"
+       @click="goForm"
     >
       <v-row class="d-flex flex-column justify-center align-center py-5">
         <v-avatar
@@ -31,7 +27,7 @@
         <p class="subtitle-2 font-weight-regular mt-3">
           {{ section.description }}
         </p>
-        <v-radio-group class="my-0 py-0" v-model="section.status">
+        <v-radio-group class="my-0 py-0"  :mandatory="disabled">
           <v-radio color="secondary"></v-radio> </v-radio-group
       ></v-row> </v-card
   >
@@ -44,11 +40,25 @@ export default {
       type: Object,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
-  data() {
-    return {
-      radio: 1,
-    };
+  // data() {
+  //   return {
+  //     radio: 1,
+  //   };
+  // },
+  methods: {
+    goForm() {
+      this.$router.push({
+        name: 'Forms',
+        params: {
+          formId: this.section.formId,
+        },
+      });
+    },
   },
 };
 </script>
