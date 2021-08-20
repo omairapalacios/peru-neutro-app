@@ -40,63 +40,56 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import sections from "@/mocks/sections.json";
-import { addDocument } from "@/services/firebase/methods";
-import dayjs from "dayjs";
+import { mapState } from 'vuex';
+import dayjs from 'dayjs';
+import sections from '@/mocks/sections.json';
+import { addDocument } from '@/services/firebase/methods';
 
 export default {
   components: {
-    Toolbar: () => import("../../components/ToolBar.vue"),
+    Toolbar: () => import('../../components/ToolBar.vue'),
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(['user']),
     sectionId() {
       return this.$route.params.sectionId;
     },
   },
   data: () => ({
     section: {},
-    value: "",
-    date: "",
+    value: '',
     answer: {
-      userId: "",
-      sectionId: "",
+      userId: '',
+      sectionId: '',
       date: 0,
       milliseconds_created: dayjs().valueOf(),
-      user_date: "",
+      user_date: '',
       user_section: '',
       answers: [],
     },
     date: 0,
-    answerData: {
-      userId: "1234567890",
-      sectionId: "sectionTransportGasohol01",
-      milliseconds: "1629258671",
-      user_date: "1234567890-1629258671",
-    },
   }),
   created() {
     // mock getSectionById
     console.log(this.user, this.answer);
     [this.section] = sections.filter((e) => e.sectionId === this.sectionId);
   },
-  methods:{
+  methods: {
     addFootprint() {
       this.answer.userId = this.user.userId;
       this.answer.date = dayjs(this.date).valueOf();
       this.answer.user_date = `${this.user.userId}-${dayjs(this.date).valueOf()}`;
       this.answer.sectionId = this.sectionId;
-      this.answer.user_section =`${this.user.userId}-${this.sectionId}`;
+      this.answer.user_section = `${this.user.userId}-${this.sectionId}`;
       this.answer.answers.push({
         value: this.value,
         questionId: this.section.questions[0].questionId,
-        status:'registrado'
-      })
-      addDocument("ANSWERS", this.answer);
+        status: 'registrado',
+      });
+      addDocument('ANSWERS', this.answer);
       this.$router.go(-1);
-    }
-  }
+    },
+  },
 };
 </script>
 
