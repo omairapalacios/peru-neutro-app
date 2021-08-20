@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     check() {
-      return !this.disabled;
+      return this.disabled;
     },
   },
   methods: {

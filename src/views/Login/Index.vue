@@ -68,9 +68,10 @@ export default {
       try {
         await signInUser(this.email, this.password);
         let user = currentUser();
+        const userId = user.uid;
         user = await getDocumentById('USERS', user.uid);
         this.$router.push('home');
-        this.$store.dispatch('getUser', { email: this.email, ...user });
+        this.$store.dispatch('getUser', { email: this.email, userId, ...user });
       } catch (error) {
         console.log(error);
         switch (error.code) {
