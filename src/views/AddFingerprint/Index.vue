@@ -62,8 +62,7 @@ export default {
     answer: {
       userId: "",
       sectionId: "",
-      date: 0,
-      milliseconds_created: dayjs().valueOf(),
+      milliseconds: 0,
       user_date: "",
       user_section: '',
       answers: [],
@@ -77,14 +76,13 @@ export default {
     },
   }),
   created() {
-    // mock getSectionById
     console.log(this.user, this.answer);
     [this.section] = sections.filter((e) => e.sectionId === this.sectionId);
   },
   methods:{
     addFootprint() {
       this.answer.userId = this.user.userId;
-      this.answer.date = dayjs(this.date).valueOf();
+      this.answer.milliseconds = dayjs(this.date).valueOf();
       this.answer.user_date = `${this.user.userId}-${dayjs(this.date).valueOf()}`;
       this.answer.sectionId = this.sectionId;
       this.answer.user_section =`${this.user.userId}-${this.sectionId}`;
