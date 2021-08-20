@@ -1,21 +1,29 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <router-view />
-      <v-bottom-navigation app
-      value="value"
-      height="80"
-      class="d-flex justify-space-around align-center ">
-        <v-col v-for="view in views" :key="view.title"
-        color="white" class="text-center"
-         @click="$router.push({
-           name: view.name
-         })">
-          <v-icon>{{view.icon}}</v-icon>
-          <span>{{view.title}}</span>
+      <v-bottom-navigation
+        app
+        value="value"
+        height="80"
+        class="d-flex justify-space-around align-center"
+      >
+        <v-col
+          v-for="view in views"
+          :key="view.title"
+          color="white"
+          class="text-center"
+          @click="
+            $router.push({
+              name: view.name,
+            })
+          "
+        >
+          <v-icon>{{ view.icon }}</v-icon>
+          <span>{{ view.title }}</span>
         </v-col>
       </v-bottom-navigation>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

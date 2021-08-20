@@ -198,8 +198,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.text {
-  height: 10% !important;
-}
-</style>
+<style lang="scss" scoped></style>

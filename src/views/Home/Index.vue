@@ -1,11 +1,13 @@
 <template>
-  <v-container>
-    <Toolbar title="Registro de Huella" />
+  <v-container class="my-10">
+    <v-row class="d-flex mx-8 mt-5">
+      <h2 class="secondary--text">¿Cómo quieres ayudar al planeta?</h2>
+      <p class="subtitle-2 font-weight-regular">
+        Selecciona las opciones con las que quieras ayudar al planeta.
+      </p>
+    </v-row>
     <v-row class="d-flex flex-wrap justify-center">
-      <Section
-       v-for="section in forms" :key="section.formId"
-      :section="section"
-      />
+      <Section v-for="section in forms" :key="section.formId" :section="section" />
     </v-row>
   </v-container>
 </template>
@@ -18,7 +20,6 @@ export default {
     this.$store.commit('SET_LAYOUT', 'main-layout');
   },
   components: {
-    Toolbar: () => import('../../components/ToolBar.vue'),
     Section: () => import('./Section.vue'),
   },
   data() {
