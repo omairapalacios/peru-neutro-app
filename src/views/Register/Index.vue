@@ -1,22 +1,24 @@
 <template>
   <v-container class="container d-flex justify-center align-center"
-    ><v-form class="d-flex flex-column align-center">
+    ><v-form ref="form" v-model="valid" class="d-flex flex-column align-center">
       <v-row class="d-flex flex-column align-self-start mx-2 my-5">
         <h2>Mide tu Huella</h2>
         <p>Ingresa tus datos para registrarte</p>
       </v-row>
-      <v-row class="d-flex flex-column mx-2"
+      <v-col cols="12" md="12" sm="12"
         ><label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
           for="f_lastname"
           >Apellido Paterno</label
         >
         <v-text-field
+          class="rounded-lg"
           outlined
           dense
           name="f_lastname"
           placeholder="Apellido Paterno"
           v-model.trim="dataUser.f_lastname"
+          :rules="[(v) => !!v || 'el campo es requerido']"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -24,11 +26,13 @@
           >Apellido Materno</label
         >
         <v-text-field
+          class="rounded-lg"
           outlined
           dense
           name="m_lastname"
           placeholder="Apellido Materno"
           v-model.trim="dataUser.m_lastname"
+          :rules="[(v) => !!v || 'el campo es requerido']"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -36,11 +40,13 @@
           >Nombres</label
         >
         <v-text-field
+          class="rounded-lg"
           outlined
           dense
           name="names"
           placeholder="Nombres"
           v-model.trim="dataUser.names"
+          :rules="[(v) => !!v || 'el campo es requerido']"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -48,12 +54,14 @@
           >Fecha de Nacimiento</label
         >
         <v-text-field
+          class="rounded-lg"
           outlined
           dense
           type="date"
           name="birthday"
           placeholder="dd/mm/yyyy"
           v-model.trim="dataUser.birthday"
+          :rules="[(v) => !!v || 'el campo es requerido']"
         ></v-text-field>
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -61,15 +69,58 @@
           >Celular</label
         >
         <v-text-field
+          class="rounded-lg"
           outlined
           dense
           type="number"
           name="phone"
           placeholder="999999999"
           v-model.trim="dataUser.phone"
-        ></v-text-field
-      ></v-row>
-      <v-btn width="100%" class="rounded-xl my-5" color="secondary" @click="registerUser">
+          :rules="[(v) => !!v || 'el campo es requerido']"
+        ></v-text-field>
+        <label
+          class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
+          for="m_lastname"
+          >Email</label
+        >
+        <v-text-field
+          class="rounded-lg"
+          outlined
+          dense
+          :rules="emailRules"
+          type="email"
+          name="email"
+          placeholder="correo@email.com"
+          v-model.trim="email"
+        ></v-text-field>
+        <label
+          class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
+          for="m_lastname"
+          >Contraseña</label
+        >
+        <v-text-field
+          class="rounded-lg"
+          outlined
+          dense
+          :rules="passwordRules"
+          placeholder="*********"
+          id="password"
+          color="primary"
+          name="password"
+          :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="show ? 'text' : 'password'"
+          @click:append="show = !show"
+          required
+          v-model.trim="password"
+      /></v-col>
+      <small class="red--text" v-if="error">{{ error }}</small>
+      <v-btn
+        :disabled="!valid"
+        width="100%"
+        class="rounded-xl my-5"
+        color="secondary"
+        @click="registerUser"
+      >
         Guardar</v-btn
       ></v-form
     >
@@ -86,11 +137,16 @@
 </template>
 <script>
 import dayjs from 'dayjs';
-import { addDocument } from '../../services/firebase/methodos';
+import { setDocumentById, createAuthUser } from '../../services/firebase/methodos';
 
 export default {
   data() {
     return {
+      error: '',
+      show: false,
+      valid: false,
+      email: '',
+      password: '',
       dialogConfirm: false,
       dataModal: {
         title: 'Cuenta Activada',
@@ -102,8 +158,10 @@ export default {
         f_lastname: '',
         m_lastname: '',
         birthday: '',
-        phone: '99999999',
+        phone: '',
       },
+      emailRules: [(v) => !!v || 'El email es requerido'],
+      passwordRules: [(v) => !!v || 'La contraseña es requerida'],
     };
   },
   computed: {
@@ -118,16 +176,30 @@ export default {
     changeRoute() {
       this.$router.push('home');
     },
-    registerUser() {
-      this.dialogConfirm = true;
-      this.dataUser.birthday = this.dateBirthday;
-      addDocument('USERS', this.dataUser);
+    async registerUser() {
+      try {
+        this.dataUser.birthday = this.dateBirthday;
+        const resp = await createAuthUser(this.email, this.password);
+        const { uid } = resp.user;
+        setDocumentById('USERS', uid, this.dataUser);
+        this.dialogConfirm = true;
+      } catch (error) {
+        console.log(error.code);
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            this.error = 'El correo ya se encuentra registrado.';
+            break;
+          default:
+            this.error = 'Se ha producido un error';
+            break;
+        }
+      }
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-.container {
-  height: 100vh;
+.text {
+  height: 10% !important;
 }
 </style>

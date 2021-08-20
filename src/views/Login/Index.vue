@@ -1,7 +1,7 @@
 <template>
   <v-container
     class="container d-flex justify-center align-center align-items-center align-content-center"
-    ><v-form class="d-flex flex-column align-center">
+    ><v-form ref="form" v-model="valid" class="d-flex flex-column align-center">
       <img class="my-4" src="../../assets/images/login.svg" alt="persona reciclando" />
       <label
         class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text mx-5 text-uppercase"
@@ -9,12 +9,14 @@
         >Email</label
       >
       <v-text-field
+        class="rounded-lg"
         outlined
         dense
+        :rules="emailRules"
         name="email"
         prepend-inner-icon="email"
         placeholder="correo@email.com"
-        id="id"
+        v-model.trim="email"
       ></v-text-field>
       <label
         class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text mx-5 text-uppercase"
@@ -22,21 +24,67 @@
         >Contraseña</label
       >
       <v-text-field
+        class="rounded-lg"
         outlined
         dense
-        type="password"
-        name="contraseña"
+        :rules="passwordRules"
         prepend-inner-icon="lock"
-        placeholder="correo@email.com"
-        id="id"
+        placeholder="********"
+        v-model.trim="password"
       ></v-text-field>
-      <v-btn class="rounded-xl" color="secondary"> Mide tu huella de carbono</v-btn>
+      <v-btn :disabled="!valid" @click="authUser" class="rounded-xl" color="secondary">
+        Mide tu huella de carbono</v-btn
+      >
+      <small class="red--text" v-if="error">{{ error }}</small>
       <p class="body-2 my-4">
-        ¿Todavía no tienes una cuenta? <strong class="secondary--text">Regístrate</strong>
+        ¿Todavía no tienes una cuenta?
+        <strong class="secondary--text" @click="$router.push('register')"
+          >Regístrate</strong
+        >
       </p></v-form
     ></v-container
   >
 </template>
+<script>
+import { signInUser } from '../../services/firebase/methodos';
+
+export default {
+  data() {
+    return {
+      valid: false,
+      email: '',
+      password: '',
+      error: '',
+      emailRules: [(v) => !!v || 'El email es requerido'],
+      passwordRules: [(v) => !!v || 'La contraseña es requerida'],
+    };
+  },
+  methods: {
+    async authUser() {
+      try {
+        await signInUser(this.email, this.password);
+        this.$router.push('home');
+      } catch (error) {
+        console.log(error);
+        switch (error.code) {
+          case 'auth/user-not-found':
+            this.error = 'El usuario no se encuentra registrado';
+            break;
+          case 'auth/wrong-password':
+            this.error = 'La contraseña es incorrecta';
+            break;
+          case 'auth/invalid-email':
+            this.error = 'No se ingresó ningún correo electrónico';
+            break;
+          default:
+            this.error = 'Se ha producido un error';
+            break;
+        }
+      }
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .container {
   height: 100vh;

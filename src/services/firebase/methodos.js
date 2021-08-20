@@ -1,4 +1,4 @@
-import { db } from './config';
+import { db, auth } from './config';
 
 export function addDocument(collectionName, object) {
   const { key } = db.ref(collectionName).push();
@@ -24,7 +24,8 @@ export async function updateDocument(collectionName, docId, dataUpdated) {
 
 export async function getDocumentsOrderByChild(collectionName, query) {
   const { child, startAt, endAt } = query;
-  const result = await db.ref(collectionName)
+  const result = await db
+    .ref(collectionName)
     .orderByChild(child)
     .startAt(startAt)
     .endAt(endAt)
@@ -89,4 +90,16 @@ export function getSnapshotAllDocuments(collectionName, query) {
         }
       });
   });
+}
+
+export function createAuthUser(email, password) {
+  return auth.createUserWithEmailAndPassword(email, password);
+}
+
+export function signInUser(email, password) {
+  return auth.signInWithEmailAndPassword(email, password);
+}
+
+export function signOutUser() {
+  return auth.signOut();
 }
