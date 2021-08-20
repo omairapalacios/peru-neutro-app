@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import forms from '@/mocks/forms.json';
 import { getDocumentByQuery } from '@/services/firebase/methods';
 
@@ -33,6 +34,7 @@ export default {
       userId: 'EtKqyTS22jPkBG5swy1l95BXS2Z2',
     };
   },
+  computed: { ...mapState(['user']) },
   methods: {
     async getMyPreferences() {
       const preferences = await getDocumentByQuery('PREFERENCES', { key: 'userId', value: this.userId });
