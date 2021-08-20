@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     layout: 'login-layout',
+    user: {},
   },
   mutations: {
     SET_LAYOUT(state, newLayout) {

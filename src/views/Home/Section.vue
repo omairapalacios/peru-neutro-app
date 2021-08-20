@@ -52,14 +52,12 @@ export default {
   // },
   methods: {
     goForm() {
-      if (!this.disabled) {
-        this.$router.push({
-          name: 'Forms',
-          params: {
-            formId: this.section.formId,
-          },
-        });
-      }
+      this.$router.push({
+        name: 'Forms',
+        params: {
+          formId: this.section.formId,
+        },
+      });
     },
   },
 };
