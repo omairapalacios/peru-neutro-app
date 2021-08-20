@@ -46,7 +46,7 @@
   >
 </template>
 <script>
-import { signInUser } from '../../services/firebase/methods';
+import { signInUser } from '@/services/firebase/methods';
 
 export default {
   data() {
