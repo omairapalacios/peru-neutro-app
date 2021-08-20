@@ -39,11 +39,11 @@ export default function getSection(formId, answer) {
     case 'form-energy-footprint':
       return getSectionEnergy(answer);
     case 'form-electric-footprint':
-      return 'sectionEnergy01';
+      return 'sectionElectric01';
     case 'form-water-footprint':
-      return 'sectionEnergy01';
+      return 'sectionWater01';
     case 'form-nf3-footprint':
-      return 'sectionEnergy01';
+      return 'sectionNf301';
     default:
       return 'sectionEnergy01';
   }

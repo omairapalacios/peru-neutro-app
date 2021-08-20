@@ -1,9 +1,129 @@
 [
   {
+    "sectionId": "sectionTransportGasohol01",
+    "questions": [
+      {
+        "questionId": "TransportGasohol01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionTransportDissel01",
+    "questions": [
+      {
+        "questionId": "sectionTransportDissel01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionTransportGLP01",
+    "questions": [
+      {
+        "questionId": "sectionTransportGLP01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
     "sectionId": "sectionTransportGNV01",
     "questions": [
       {
-        "questionId": "sectionGNV001",
+        "questionId": "sectionTransportGNV01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyIndustrial01",
+    "questions": [
+      {
+        "questionId": "sectionEnergyIndustrial01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyIndustrial6",
+    "questions": [
+      {
+        "questionId": "sectionEnergyIndustrial601Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyGasohol01",
+    "questions": [
+      {
+        "questionId": "sectionEnergyGasohol01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyDiessel01",
+    "questions": [
+      {
+        "questionId": "sectionEnergyDiessel01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyGLP01",
+    "questions": [
+      {
+        "questionId": "sectionEnergyGLP01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionEnergyGNV0101",
+    "questions": [
+      {
+        "questionId": "sectionEnergyGNV01Q1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionElectric01",
+    "questions": [
+      {
+        "questionId": "sectionElectricQ1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionWater01",
+    "questions": [
+      {
+        "questionId": "sectionElectricQ1",
+        "question": "Indica la cantidad de galones",
+        "type": "input"
+      }
+    ]
+  },
+  {
+    "sectionId": "sectionNf301",
+    "questions": [
+      {
+        "questionId": "sectionElectricQ1",
         "question": "Indica la cantidad de galones",
         "type": "input"
       }
