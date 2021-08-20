@@ -1,19 +1,23 @@
 <template>
   <div>
-    <Toolbar :title="currentForm.title" :goBack="goBack"/>
+    <Toolbar :title="currentForm.title" :goBack="goBack" />
     <div class="d-flex flex-column body">
       <ProgressBar :progress="progress" />
-      <FormSelect :form="currentPage" :changeSectionId="changeSectionId" :totalPages="totalPages"/>
+      <FormSelect
+        :form="currentPage"
+        :changeSectionId="changeSectionId"
+        :totalPages="totalPages"
+      />
       <v-row class="actions d-flex justify-center align-center">
         <v-btn
+          outlined
           v-if="currentPageNumber + 1 < totalPages"
           class="btn-dark"
           @click="currentPageNumber++"
         >
           Continuar
         </v-btn>
-        <v-btn v-else class="btn-dark"
-        @click="saveConfiguration">
+        <v-btn v-else class="btn-dark" @click="saveConfiguration">
           Guardar configuracion
         </v-btn>
       </v-row>
@@ -92,9 +96,6 @@ export default {
 
 <style lang="scss" scoped>
 .body {
-  height: 90vh !important;
-}
-.actions {
-  height: 20% !important;
+  height: 70vh !important;
 }
 </style>

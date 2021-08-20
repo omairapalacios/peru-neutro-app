@@ -1,16 +1,21 @@
 <template>
-<div>
-    <h2 class="text-center">{{form.question}}</h2>
+  <div>
+    <h2 class="text-center mt-5">{{ form.question }}</h2>
     <v-form class="d-flex flex-column justify-center">
-        <div class="d-flex flex-column align-center">
-            <v-btn class="btn-light my-3"
-            v-for="option in form.options" :key="option"
-            @click="saveAnswer(option)">
-                {{option}}
-            </v-btn>
-        </div>
+      <div class="d-flex flex-column align-center">
+        <v-btn
+          small
+          depressed
+          class="btn-light my-2"
+          v-for="option in form.options"
+          :key="option"
+          @click="saveAnswer(option)"
+        >
+          {{ option }}
+        </v-btn>
+      </div>
     </v-form>
-</div>
+  </div>
 </template>
 
 <script>
@@ -54,6 +59,6 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/_classes';
 .v-form {
-  height: 65vh !important;
+  height: 60vh !important;
 }
 </style>
