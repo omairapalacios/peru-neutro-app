@@ -1,6 +1,6 @@
 <template>
   <v-container class="my-10">
-    <v-row class="d-flex mx-8 mt-5">
+    <v-row class="d-flex mx-5 mt-5">
       <h2 class="secondary--text">¿Cómo quieres ayudar al planeta?</h2>
       <p class="subtitle-2 font-weight-regular">
         Selecciona las opciones con las que quieras ayudar al planeta.
