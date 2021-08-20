@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables';
+@import '@/styles/_classes';
 
 .semicircle {
     border: 5px solid $color-primary-light;
@@ -32,11 +33,7 @@ export default {
     border-top-right-radius: 50% 100%;
     width: 75vw;
 }
-%img-general{
-    border: 3px solid $color-primary-light;
-    position: relative;
-    border-radius: 50%;
-}
+
 .img1 {
     @extend %img-general;
     top: 120px;
