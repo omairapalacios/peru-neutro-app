@@ -15,7 +15,7 @@
         <cardHuella :data="user" />
       </v-col>
     </v-row>
-    <footer />
+    <Footer />
   </v-container>
 </template>
 
@@ -23,12 +23,12 @@
 import { mapState } from "vuex";
 import { data } from "@/mocks/shopping.json";
 import cardHuella from "./cardHuella.vue";
-import footer from "./footer.vue";
+import Footer from "./footer.vue";
 
 export default {
   components: {
     cardHuella,
-    footer,
+    Footer,
   },
   data: () => ({
     data: data,
