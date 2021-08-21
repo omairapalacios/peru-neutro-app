@@ -9,7 +9,7 @@
       <h1 class="text-title">Hola {{ user.names }}!</h1>
       <Accumulate :carbone="carbone"/>
     </v-card>
-    <Congratulations/>
+    <Congratulations v-if="carbone>0" />
     <div v-for="preference in preferences" :key="preference.title">
       <AddFingerprintCard :preference="preference" />
     </div>
