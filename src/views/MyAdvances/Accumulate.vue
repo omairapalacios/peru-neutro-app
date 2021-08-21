@@ -10,6 +10,7 @@
         max-width="60"  class="img3" max-height="60"/>
         <div class="value-center text-center">
             <h1>{{carbone}}</h1>
+            <h4>tCO2e</h4>
             <h1 class="text-title">Agosto</h1>
         </div>
     </div>
