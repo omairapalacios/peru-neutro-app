@@ -22,8 +22,9 @@
     <v-row class="d-flex mb-5 align-center justify-space-between"
       ><small>Solicitud</small><small>Revisión</small> <small>Acreditación</small></v-row
     >
+    <a href="/certificate.pdf" download>
     <v-btn width="100%" class="rounded-xl my-5" color="secondary"
-    @click="updateUser()"> Mi certificado</v-btn>
+    @click="updateUser()"> Mi certificado</v-btn></a>
   </v-container>
 </template>
 
