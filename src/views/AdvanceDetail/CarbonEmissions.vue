@@ -14,7 +14,7 @@
       ></v-col>
       <v-col cols="8"
         ><p>
-          La huella de carbono se mide en masa de CO2 equivalente (CO2e o CO2eq)
+          La huella de carbono se mide en toneladas de CO2 equivalente (tCO2e)
           por mes.
         </p></v-col
       >
