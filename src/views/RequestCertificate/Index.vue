@@ -22,15 +22,25 @@
     <v-row class="d-flex mb-5 align-center justify-space-between"
       ><small>Solicitud</small><small>Revisión</small> <small>Acreditación</small></v-row
     >
-    <v-btn width="100%" class="rounded-xl my-5" color="secondary"> Mi certificado</v-btn>
+    <v-btn width="100%" class="rounded-xl my-5" color="secondary"
+    @click="updateUser()"> Mi certificado</v-btn>
   </v-container>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import { updateDocument } from '@/services/firebase/methods';
 
 export default {
   computed: { ...mapState(['user']) },
+  methods: {
+    async updateUser() {
+      await updateDocument('USERS', this.user.userId, {
+        accumulate: '1022',
+        last_certificate: new Date().getTime(),
+      });
+    },
+  },
 };
 </script>
 
