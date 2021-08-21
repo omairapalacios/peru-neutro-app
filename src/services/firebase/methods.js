@@ -49,7 +49,20 @@ export async function getDocumentByQuery(collectionName, query) {
   if (!result.val()) return [];
   return Object.values(result.val());
 }
-
+export async function updateDocumentByQuery(collectionName, query, dataUpdated) {
+  const { key, value } = query;
+  const result = await db
+    .ref(collectionName)
+    .orderByChild(key)
+    .equalTo(value)
+    .once('value');
+  if (!result.val()) return [];
+  const docId = Object.keys(result.val())[0];
+  return db
+    .ref(collectionName)
+    .child(docId)
+    .update(dataUpdated);
+}
 export async function getAllDocuments(collectionName) {
   const result = await db.ref(collectionName).once('value');
   if (!result.val()) return [];

@@ -2,7 +2,7 @@
   <div v-if="currentAdvanceDetail">
     <Toolbar :title="currentAdvanceDetail.title" :goBack="goBack" />
     <AdvanceByMonth/>
-    <CarbonEmissions :fingerprint='fingerprintTotal'/>
+    <CarbonEmissions :fingerprint='fingerprintTotal' :supplyNumber="supplyNumber" :formId="formId"/>
     <RegisterConsume/>
     <div v-for="fingerprint in currentAdvanceDetail" :key="fingerprint.user_date">
     <v-row
@@ -52,6 +52,12 @@ export default {
       const fingerprint = fingerprintTotal / 5000;
       //
       return fingerprint;
+    },
+    supplyNumber() {
+      return this.$route.params.supplyNumber;
+    },
+    formId() {
+      return this.$route.params.formId;
     },
     ...mapState(['user']),
   },

@@ -10,6 +10,8 @@
                name: 'AdvanceDetail',
                params: {
                 sectionId : preference.sectionId,
+                supplyNumber: preference.supplyNumber,
+                formId: preference.formId
                }
                })">
                 <v-icon >add</v-icon>

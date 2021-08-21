@@ -31,7 +31,7 @@
         {
           "questionId": "form0002",
           "question": "2. ¿Para cocinar que tipo de combustible utilizas?",
-          "options": ["PETROLEO INDUSTRIAL", "PETROLEO INDUSTRIAL 6", "GASOHOL (86, 90, 95)", "DIESSEL", "GLP", "GNV"]
+          "options": [ "GLP", "GNV"]
         }
     ]
   },
