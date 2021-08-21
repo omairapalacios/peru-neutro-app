@@ -58,18 +58,18 @@ export default {
   data: () => ({
     section: {},
     value: '',
+    date: '',
     answer: {
       userId: '',
       sectionId: '',
-      milliseconds: 0,
+      milliseconds: dayjs().valueOf(),
       user_date: '',
       user_section: '',
       answers: [],
     },
-    date: 0,
   }),
   created() {
-    console.log(this.user, this.answer);
+    // mock getSectionById
     [this.section] = sections.filter((e) => e.sectionId === this.sectionId);
   },
   methods: {

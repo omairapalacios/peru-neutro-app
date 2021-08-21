@@ -9,7 +9,7 @@
         <v-img src="@/assets/images/cook.svg"
         max-width="60"  class="img3" max-height="60"/>
         <div class="value-center text-center">
-            <h1>100</h1>
+            <h1>{{carbone}}</h1>
             <h1 class="text-title">Agosto</h1>
         </div>
     </div>
@@ -18,7 +18,11 @@
 
 <script>
 export default {
-
+  props: {
+    carbone: {
+      type: Number,
+    },
+  },
 };
 </script>
 
