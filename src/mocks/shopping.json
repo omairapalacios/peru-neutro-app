@@ -9,6 +9,20 @@
             "points": 10000
         },
         {   "id": "1",
+            "title": "Jeff Felipa Alejos",
+            "name": "Jeff Felipa Alejos",
+            "date": "12/07/2021",
+            "points": 2000
+        },
+        {
+            "id": "5",
+            "title": "Christhian Silupu",
+            "name": "Christhian Silupu",
+            "date": "12/07/2021",
+            "points": 2000
+        },
+        {
+            "id": "6",
             "title": "Belen Martínez Gago",
             "name": "Belen Martínez Gago",
             "date": "12/07/2021",
@@ -21,10 +35,10 @@
             "points": 1290
         },
         {   "id": "4",
-            "title": "Jeff Felipa Alejos",
-            "name": "Jeff Felipa Alejos",
+            "title": "Sandy Marmolejo",
+            "name": "Sandy Marmolejo",
             "date": "01/06/2021",
             "points": 1290
-        }      
+        }
     ]
 }
