@@ -21,7 +21,7 @@
         <label
           class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
           for="m_lastname"
-          >{{ q.question }}- {{q.questionId}}
+          >{{ q.question }}
         </label>
         <v-text-field
           class="rounded-lg"
