@@ -182,6 +182,7 @@ export default {
         const resp = await createAuthUser(this.email, this.password);
         const { uid } = resp.user;
         setDocumentById('USERS', uid, this.dataUser);
+        this.$store.dispatch('getUser', { email: this.email, userId: uid, ...this.dataUser });
         this.dialogConfirm = true;
       } catch (error) {
         console.log(error.code);
