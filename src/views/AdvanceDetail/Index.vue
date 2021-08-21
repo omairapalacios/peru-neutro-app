@@ -15,7 +15,7 @@
       </v-col>
     </v-row>
     <div v-for="answer in fingerprint.answers" :key="answer.questionId">
-        <Answer :answer="answer" :miliseconds="fingerprint.miliseconds"/>
+        <Answer :answer="answer" :milliseconds="fingerprint.milliseconds"/>
     </div>
     </div>
   </div>
@@ -24,7 +24,6 @@
 <script>
 import { mapState } from 'vuex';
 import { getDocumentByQuery } from '@/services/firebase/methods';
-import data from '@/mocks/sections.json';
 
 export default {
   data() {
@@ -38,13 +37,6 @@ export default {
     CarbonEmissions: () => import('./CarbonEmissions.vue'),
     RegisterConsume: () => import('./RegisterConsume.vue'),
     Answer: () => import('./Answer.vue'),
-  },
-  mounted() {
-    console.log(this.currentAdvanceDetail);
-    if (this.currentAdvanceDetail.length !== 0) {
-      [this.currentAdvanceDetail] = data.filter((e) => e.sectionId === this.$route.params.sectionId);
-      console.log(this.currentAdvanceDetail.answers);
-    }
   },
   async created() {
     await this.getAnswers();
@@ -66,7 +58,7 @@ export default {
   methods: {
     async getAnswers() {
       this.currentAdvanceDetail = await getDocumentByQuery('ANSWERS', {
-        key: 'user-section',
+        key: 'user_section',
         value: `${this.user.userId}-${this.sectionId}`,
       });
     },

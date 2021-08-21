@@ -26,13 +26,13 @@ export default {
     answer: {
       type: Object,
     },
-    miliseconds: {
+    milliseconds: {
       type: String,
     },
   },
   computed: {
     date() {
-      return dayjs(new Date(Number(this.miliseconds))).format('DD/MM/YYYY');
+      return dayjs(new Date(Number(this.milliseconds))).format('DD/MM/YYYY');
     },
   },
 };
