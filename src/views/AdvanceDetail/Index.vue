@@ -1,6 +1,6 @@
 <template>
   <div v-if="currentAdvanceDetail">
-    <Toolbar :title="currentAdvanceDetail.title" :goBack="goBack" />
+    <Toolbar title="Registra tu huella" :goBack="goBack" />
     <AdvanceByMonth/>
     <CarbonEmissions :fingerprint='fingerprintTotal' :supplyNumber="supplyNumber" :formId="formId"/>
     <RegisterConsume/>

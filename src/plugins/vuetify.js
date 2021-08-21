@@ -11,6 +11,7 @@ export default new Vuetify({
         primary: '#2276BB',
         secondary: '#007a0e',
         sky: '#D5E6FB',
+        info: '#d6eac0',
       },
       dark: {
         primary: '#2276BB',

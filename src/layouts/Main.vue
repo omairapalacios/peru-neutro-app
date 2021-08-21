@@ -52,7 +52,7 @@ export default {
       {
         title: 'Mi perfil',
         icon: 'person',
-        name: 'MyProfile',
+        name: 'RequestCertificate',
       },
     ],
   }),

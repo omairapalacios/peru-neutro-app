@@ -1,25 +1,17 @@
 <template>
-  <v-row >
-      <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-      <v-carousel :show-arrows="false" height="200" >
-        <v-carousel-item>
-          <v-row justify="space-around" align="center" class="mt-2">
-            <div v-for="(item, index) in listOfMonths" :key="item">
-              <p>{{ item }}</p>
-              <v-btn icon color="green" v-if="index == 0">
-                <v-icon>mdi-checkbox-marked-circle </v-icon>
-              </v-btn>
-              <v-btn icon color="gray" v-else>
-                <v-icon>mdi-checkbox-blank-circle-outline</v-icon>
-              </v-btn>
-            </div>
-          </v-row>
-        </v-carousel-item>
-        <v-carousel-item>
-          <p>hola</p>
-        </v-carousel-item>
-      </v-carousel>
+  <v-card width="100%" tile outlined>
+    <v-row justify="space-around" align="center" class="pa-10">
+    <div v-for="(item, index) in listOfMonths" :key="item">
+      <p class="secondary--text">{{ item }}</p>
+      <v-btn icon color="green" v-if="index == 0">
+        <v-icon>mdi-checkbox-marked-circle </v-icon>
+      </v-btn>
+      <v-btn icon color="gray" v-else>
+        <v-icon>mdi-checkbox-blank-circle-outline</v-icon>
+      </v-btn>
+    </div>
   </v-row>
+  </v-card>
 </template>
 
 <script>

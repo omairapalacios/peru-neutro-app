@@ -124,7 +124,12 @@
     "questions": [
       {
         "questionId": "sectionElectricQ1",
-        "question": "Indica la cantidad de galones",
+        "question": "Indica el ancho de tu pantalla plasma",
+        "type": "input"
+      },
+      {
+        "questionId": "sectionElectricQ2",
+        "question": "Indica el alto de tu pantalla plasma",
         "type": "input"
       }
     ]

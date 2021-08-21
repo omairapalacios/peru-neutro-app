@@ -1,24 +1,22 @@
 <template>
-  <v-col cols="12" class="mt-8">
-    <p>Emisiones de carbono</p>
-    <v-divider></v-divider>
-    <v-row class="py-3" justify="center">
+  <v-col cols="12" class="mt-2">
+    <p class="font-weight-bold secondary--text">Emisiones de carbono</p>
+    <v-card class="d-flex" color="gray" outlined  justify="center">
       <v-col cols="3">
         <v-progress-circular
           :rotate='360'
           :size='80'
           :width='5'
           :value='fingerprint'
-          color= 'gray'
         >{{fingerprint}}</v-progress-circular
       ></v-col>
       <v-col cols="8"
-        ><p>
+        ><p class="caption mx-4">
           La huella de carbono se mide en toneladas de CO2 equivalente (tCO2e)
           por mes.
         </p></v-col
       >
-    </v-row>
+    </v-card>
     <v-divider></v-divider>
     <div v-if="hasSupplyNumber.includes(formId)">
     <div v-if="supplyNumber || updated" class="pa-3">

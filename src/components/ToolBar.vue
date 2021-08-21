@@ -1,10 +1,10 @@
 <template>
   <v-toolbar class="ma-0 pa-0" elevation="0" color="white" outlined flat>
     <v-btn icon @click="goBack">
-      <v-icon color="primary">chevron_left</v-icon>
+      <v-icon color="secondary">chevron_left</v-icon>
     </v-btn>
     <v-spacer></v-spacer>
-    <v-toolbar-title class="text-title">{{ title }}</v-toolbar-title>
+    <h4 class="secondary--text">{{ title }}</h4>
     <v-spacer></v-spacer>
   </v-toolbar>
 </template>

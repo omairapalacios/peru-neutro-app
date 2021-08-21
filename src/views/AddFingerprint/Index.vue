@@ -1,6 +1,13 @@
 <template>
   <div>
-    <Toolbar title="Registrar" />
+   <v-toolbar class="ma-0 pa-0 info" elevation="0" color="info" outlined flat>
+      <v-btn icon @click="goBack">
+        <v-icon color="secondary">chevron_left</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-toolbar-title class="text-title">{{ title }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
     <div class="pa-5">
       <label
         class="align-self-start subtitle-2 font-weight-bold grey-darken-4--text text-uppercase"
@@ -34,7 +41,7 @@
       </div>
     </div>
     <v-row class="mt-auto d-flex justify-center align-center">
-      <v-btn @click="addFootprint" class="btn-dark"> Registrar </v-btn>
+      <v-btn width="80%" color="secondary"  @click="addFootprint" class="rounded-lg"> Registrar </v-btn>
     </v-row>
   </div>
 </template>
@@ -46,9 +53,6 @@ import sections from '@/mocks/sections.json';
 import { addDocument } from '@/services/firebase/methods';
 
 export default {
-  components: {
-    Toolbar: () => import('../../components/ToolBar.vue'),
-  },
   computed: {
     ...mapState(['user']),
     sectionId() {
