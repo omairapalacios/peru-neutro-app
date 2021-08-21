@@ -52,7 +52,7 @@
     "formId": "form-electric-footprint",
     "title": "Consumo de E.Eléctrica",
     "svg": "transport",
-    "description": "Me comprometo a reducir el consumo de energía en mi hogar",
+    "description": "Me comprometo a reducir el consumo de energía eléctrica en mi hogar",
     "pages": [
         { 
           "questionId": "form0001",
